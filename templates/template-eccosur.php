@@ -1,0 +1,132 @@
+<?php 
+/* 
+ * Template Name: Eccosur
+ * Description: Página de Eccosur
+ * @package WordPress
+ * @subpackage Observatorio
+ * @since Observatorio 1.0
+*/ 
+
+get_header(); ?>
+<?php global $theme_; ?>
+
+	<main role="main">
+		<!-- section -->
+		
+		
+		
+		<section class="container-fluid background-container">	
+
+<div class="container">
+		<div class="col-md-12">
+			<br><br>
+			<img class="img-responsive center-block" src="https://www.ambiente.gub.uy/oan/wp-content/themes/observatorio-theme2022/aporte-ciudadano-interfase/images/ecosur.jpg">
+		</div>
+		<div class="col-md-12">
+			
+			<br><br>
+
+			<h4><span>ECCOSUR, Espacios de coordinación de las Convenciones de Río</span></h4>
+			<hr>
+			
+			<br>
+
+			<p>
+					<strong>Zonas de acción:</strong> Eccosur busca apoyar y alentar a los gobiernos locales de Lavalleja, Maldonado, Rocha y Treinta y Tres a fortalecer y mejorar las prácticas ambientales en territorio. Busca mejorar las capacidades de los actores locales (organizaciones de la sociedad civil y productores familiares) para afrontarde manera efectiva la gestión ambiental y apoyar iniciativas comunitarias innovadoras que aborden las problemáticas de cambio climático, biodiversidad y degradación de la tierra.
+			</p>
+
+			<p>
+					Eccosur también busca apoyar el abordaje de las 3 temáticas en los ámbitos de la educación ambiental.
+			</p>
+
+			<p>
+					<strong>Público Objetivo:</strong> Gobiernos departamentales, organizaciones de la sociedad civil y grupos de productores familiares de Lavalleja, Maldonado, Rocha y Treinta y Tres.
+			</p>
+
+
+
+
+
+
+
+
+			<br><br>
+
+			<h4><span>Material gráfico y de difusión</span></h4>
+			<hr>
+			
+			<br>
+
+			<!--
+			<p>
+					<a href="https://www.ambiente.gub.uy/oan/documentos/informe_actividades_eccosur_31-12-2018.pdf" class="fullwidth" style="text-decoration: underline;">Ver informe actividad Eccosur</a>	
+			</p>
+			-->
+			
+			<p>
+					<a href="https://www.ambiente.gub.uy/oan/documentos/triptico_eccosur_2020.pdf" class="fullwidth" style="text-decoration: underline;">Tríptico informativo</a>	
+			</p>
+
+			<p>
+			<strong>Serie de Divulgación:</strong>
+			<ul>
+				<li><a href="https://www.ambiente.gub.uy/oan/documentos/car%C3%A1tula.pdf" target="_blank">Introducción. Serie de divulgación: Las Convenciones de Río y su integración. ECCOSUR (2020)</a></li>
+				<li><a href="https://www.ambiente.gub.uy/oan/documentos/Doc-de-divulgaci%C3%B3n-N%C2%BA1.pdf" target="_blank">Las Convenciones. Origen y fundamentación (1). Serie de divulgación: Las Convenciones de Río y su integración. ECCOSUR (2020)</a></li>
+				<li><a href="https://www.ambiente.gub.uy/oan/documentos/Doc-de-divulgaci%C3%B3n-N%C2%BA2.pdf" target="_blank">Las Convenciones. CNUDL hoy. (2) Serie de divulgación: Las Convenciones de Río y su integración. ECCOSUR (2020)</a></li>
+				<li><a href="https://www.ambiente.gub.uy/oan/documentos/Doc-de-divulgaci%C3%B3n-N%C2%BA3.pdf" target="_blank">Las Convenciones. CDB hoy. (3) Serie de divulgación: Las Convenciones de Río y su integración. ECCOSUR (2020)</a></li>
+				<li><a href="https://www.ambiente.gub.uy/oan/documentos/Doc-de-divulgaci%C3%B3n-N%C2%BA4.pdf" target="_blank">Las Convenciones. CNUMCC hoy (4). Serie de divulgación: Las Convenciones de Río y su integración. ECCOSUR (2020)</a></li>
+				<li><a href="https://www.ambiente.gub.uy/oan/documentos/Doc-de-divulgaci%C3%B3n-N%C2%BA5.pdf" target="_blank">Las Convenciones. La integración: temas transversales y matriz (5). Serie de divulgación: Las Convenciones de Río y su integración. ECCOSUR (2020)</a></li>
+			</ul>	
+			</p>
+
+			<p>
+			<strong>Mapas:</strong>
+			<ul>
+				<li><a href="https://www.ambiente.gub.uy/oan/documentos/Mapa_-proyectos-terrirtorio-ECCOSUR_2020.pdf" target="_blank">Mapa de los proyectos ECCOSUR 2020 </a></li>
+				<li><a href="https://www.ambiente.gub.uy/oan/documentos/Mapa-Proyectos-en-territorio_ECCOSUR_2019-2020.pdf" target="_blank">Mapa de los proyectos de organizaciones locales ECCOSUR 2019-2020 (2020) </a></li>
+				<li><a href="https://www.ambiente.gub.uy/oan/documentos/mapas-Proyectos_Intendencias_.pdf" target="_blank">Mapa proyectos Intendencias 2019-2020 ECCOSUR (2020) </a></li>
+			</ul>	
+			</p>
+
+
+
+			<p>
+			<strong>Contacto y organización:</strong>
+			<ul>
+				<li>Unidad de Coordinación ECCOSUR</li>
+				<li><a href="mailto:eccosur2017@gmail.com" style="text-decoration: underline;">eccosur2017@gmail.com</a> </li>
+				<li>29170710 interno 3216</li>
+			</ul>
+
+
+			<p>
+			<strong>Integrantes de la Comisión Directiva:</strong>
+			<ul>
+				<li>Ecos Asociación Civil</li>
+				<li>Aves Uruguay</li>
+				<li>CEUTA</li>
+				<li>CIEDUR</li>
+				<li>Vida Silvestre Uruguay</li>
+				<li>MVOTMA</li>
+				<li>Intendencia Departamental de Rocha</li>
+				<li>Intendencia Departamental de Treinta y Tres</li>
+				<li>Intendencia Departamental de Lavalleja</li>
+				<li>Intendencia Departamental de Maldonado</li>
+				<li>PNUD</li>
+				<li>Ministerio de Relaciones Exteriores</li>
+				<li>AUCI</li>
+				<li>UDE </li>
+			</ul>
+			</p>
+
+			<hr>
+		</div>		
+	</div>
+
+		</section>
+		<!-- /section -->
+	</main>
+
+<?php //get_sidebar(); ?>
+
+<?php get_footer(); ?>

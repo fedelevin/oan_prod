@@ -1,0 +1,91 @@
+body, html {
+    height: 1px;
+}
+
+body.login
+{
+	background-image:url("../images/panel.png");
+	/*background-repeat:no-repeat;*/
+	background-attachment:fixed;
+	background-position:center;
+}
+
+#login h1 a {
+	background-image: url("../images/logo-2025.png");
+	background-size: 95px;
+}
+
+.login form{
+	box-shadow:none;
+	padding:0px!important;
+}
+
+#login {
+	background: #FFF;
+	margin: 5% auto;
+	padding: 20px;
+	box-shadow: -15px 15px 15px 1px #e1e1e1;
+	border-radius: 10px;
+	/*width: 400px;*/
+}
+.login label {
+	color: #555;
+	font-size: 14px;
+}
+.login form .forgetmenot{
+	
+}
+
+
+#login form p.submit{
+	
+}
+.login.wp-core-ui .button-primary {
+	background: #25408D;
+	border-color:#25408D;
+	box-shadow: 0 1px 0 #25408D;
+	color: #FFF;
+	text-shadow: none;
+	float: none;
+	clear: both;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	height: auto;
+	font-size: 15px;
+}
+p#nav
+{
+	display: none;
+}
+p#backtoblog
+{
+	display: none;
+}
+
+/* HELPER* ****************************************/
+#login {
+    width: 260px;
+}
+.login h1 a {
+    background-size: 100%!important;
+    background-position: center top;
+    background-repeat: no-repeat;
+    color: #444;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3em;
+    margin: 0 auto 25px;
+    padding: 0;
+    text-decoration: none;
+    width: 100%!important;
+    text-indent: -9999px;
+    outline: 0;
+    overflow: hidden;
+    display: block;
+}
+
+.login .message, .login .success {
+    border-left: 4px solid #25408D;
+}

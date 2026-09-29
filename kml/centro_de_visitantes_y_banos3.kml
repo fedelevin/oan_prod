@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Folder><name>Centro_de_Visitantes_y_baños</name>
+
+  <Placemark>
+	<name>Centro de Visitantes y baños</name>
+    <Style id="west_campus_style">
+      <IconStyle>
+        <Icon>
+          <href>https://www.dinama.gub.uy/oan/wp-content/themes/observatorio-theme4/kml/marker.png
+          </href>
+        </Icon>
+      </IconStyle>
+      <BalloonStyle>
+        <text>$[video]</text>
+      </BalloonStyle>
+    </Style>
+    <ExtendedData>
+      <Data name="video">
+        <value><![CDATA[<p><strong>Baños</strong> marca punto</p>]]></value>
+      </Data>
+    </ExtendedData>
+    <Point><coordinates>-56.8807728504358,-31.1605197628589</coordinates></Point>
+  </Placemark>
+  <Placemark>
+  <name>Centro de Visitantes y baños2</name>
+    <Style id="west_campus_style2">
+      <IconStyle>
+        <Icon>
+          <href>https://www.dinama.gub.uy/oan/wp-content/themes/observatorio-theme4/kml/marker.png
+          </href>
+        </Icon>
+      </IconStyle>
+      <BalloonStyle>
+        <text>$[video]</text>
+      </BalloonStyle>
+    </Style>
+    <ExtendedData>
+      <Data name="video">
+        <value><![CDATA[<p><strong>Baños</strong> marca punto2</p>]]></value>
+      </Data>
+    </ExtendedData>
+    <Point><coordinates>-53.8807728504358,-30.1605197628589</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>

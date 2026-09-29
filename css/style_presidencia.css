@@ -1,0 +1,52 @@
+/*
+	Theme Name: Observatorio Theme 2022 - presidencia
+	Theme URI: https://www.ambiente.gub.uy/oan/
+	Description: Observatorio Ambiental Theme Premium
+	Version: 1
+	Author: OAN
+	Author URI: OAN
+	Tags: Blank, HTML5, CSS3
+
+	License: MIT
+	License URI: http://opensource.org/licenses/mit-license.php
+*/
+
+/*------------------------------------------------------------------------------------------------------------*\
+    MAIN - Style presidencia
+\*------------------------------------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------------------------*\
+    GRAL
+\*------------------------------------------------------------------------------------------------------------*/
+.expo{
+
+}
+
+.nav-pres > li > a {
+    color: #666666!important;
+    font-size: 16px;
+    /* font-weight: bold; */
+}
+
+
+.nav-pres > li > a:hover, .nav-pres > li > a:focus {
+    color: #ffffff!important;
+    background-color: transparent;
+}
+
+/*------------------------------------------------------------------------------------------------------------*\
+    EXPO AMBIENTE
+\*------------------------------------------------------------------------------------------------------------*/
+h1.pres_title_line {
+  text-transform: uppercase;
+  color: #CCC;
+  font-weight: bold;
+  border-bottom: 2px solid;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+h1.pres_title_line {
+  border-bottom: 2px solid #aebe16 !important;
+}
+

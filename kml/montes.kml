@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Folder><name>Montes</name>
+
+  <Placemark>
+  <name>Monte de Ombúes</name>
+    <Style id="west_campus_style2">
+      <IconStyle>
+        <Icon>
+          <href>https://www.dinama.gub.uy/oan/wp-content/themes/observatorio-theme4/kml/marker.png
+          </href>
+        </Icon>
+      </IconStyle>
+      <BalloonStyle>
+        <text>$[video]</text>
+      </BalloonStyle>
+    </Style>
+    <ExtendedData>
+      <Data name="video">
+        <value><![CDATA[<p><strong>Montes</strong> de Ombúes</p>]]></value>
+      </Data>
+    </ExtendedData>
+    <Point><coordinates>-54.8807728504358,-33.1605197628589</coordinates></Point>
+  </Placemark>
+
+</Folder>
+</Document></kml>
