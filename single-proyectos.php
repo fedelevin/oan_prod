@@ -326,275 +326,35 @@
 
 			$cantidad = $theme_['nro_tramites'];
 
-			/* DOCUMENTOS  ********************************************************************************************/
-			for ($i=1; $i < $cantidad+1 ; $i++) { //Permite cargar hasta 50 documentos asociados al trámite.
-
-				/*Archivos ****************************************************************/
-				$files_docs[$i] = rwmb_meta( 'observatorio_file_tramite'.$i, 'type=file' );
-				/*Archivos ****************************************************************/
-
-				/*Faqs Preguntas ****************************************************************/
-				//$faqs_preguntas[$i] = rwmb_meta( 'pregunta'.$i, 'type=wysiwyg' );
-				$faqs_preguntas[$i] = rwmb_meta( 'pregunta1'.$i, 'type=wysiwyg' );
-				/*Faqs Preguntas ****************************************************************/
-
-				//$copete = rwmb_meta( 'copete', 'type=wysiwyg' );
-
-				/*Faqs Respuestas****************************************************************/
-				$faqs_respuestas[$i] = rwmb_meta( 'respuesta'.$i, 'type=wysiwyg' );
-				/*Faqs ****************************************************************/								
-
-				/*Grupo *******************************************************************/
-				$obra_grupo_nombre = "observatorio_grupo_tramite".$i;
-				$grupo_id = get_post_meta( get_the_ID(), $obra_grupo_nombre, true );
-				$taxonomies = get_terms( array(
-				    'taxonomy' => 'grupos',
-				    'hide_empty' => false,
-				) );
-				if ( !empty($taxonomies) ) :
-				    foreach( $taxonomies as $category ) {
-				    	if ($grupo_id == $category->term_id) {
-				    		$nombre_grupo[$i] = $grupo_name = $category->name."<br>";
-				    	}   
-				    }
-				endif;
-				/*Grupo *******************************************************************/
-
-				/*Nombre trámite **********************************************************/
-				$obra_tramite_nombre = "observatorio_tramite".$i;
-				$tramite_id = get_post_meta( get_the_ID(), $obra_tramite_nombre, true );
-				$taxonomies = get_terms( array(
-				    'taxonomy' => 'tramites',
-				    'hide_empty' => false,
-				) );
-				if ( !empty($taxonomies) ) :
-				    foreach( $taxonomies as $category ) {
-				    	if ($tramite_id == $category->term_id) {
-				    		$nombre_tramite[$i] = $tramite_name = $category->name."<br>";
-				    		$desc_tramite[$i] = $tramite_desc = $category->description."<br>";  		
-				    	}   
-				    }
-				endif;
-				/*Nombre trámite **********************************************************/			
+			/* FAQ legacy (pregunta1{i}/respuesta{i}) — sin campo en el admin activo
+			   hoy (estaba comentado en demo.php), pero $faqs_preguntas/$faqs_respuestas
+			   se siguen usando más abajo en el bloque de FAQ, así que se preserva tal cual
+			   estaba para no romper esa sección. */
+			for ( $i = 1; $i < $cantidad + 1; $i++ ) {
+				$faqs_preguntas[ $i ]  = rwmb_meta( 'pregunta1' . $i, 'type=wysiwyg' );
+				$faqs_respuestas[ $i ] = rwmb_meta( 'respuesta' . $i, 'type=wysiwyg' );
 			}
-			/* DOCUMENTOS  ********************************************************************************************/
 
+			/* Los 5 grupos de documentos de trámites ahora vienen de
+			   tramites-group-field.php como campos repetibles (array ya en el orden
+			   final, sin cajas vacías que filtrar ni campo "Orden" que aplicar). Se
+			   reconstruyen los mismos arrays que usaban los bloques de render de abajo
+			   para no tener que tocarlos. */
+			list( $files_docs, $nombre_grupo, $desc_tramite ) =
+				observatorio_build_tramites_display_arrays( get_the_ID(), 'observatorio_tramites_group' );
 
-			/* COMISION DE SEGUIMIENTO ********************************************************************************/
-			for ($i=1; $i < 11 ; $i++) { //Permite cargar hasta 10 documentos asociados al trámite.
-				
-				/*Archivos ****************************************************************/
-				$files_docs_comision[$i] = rwmb_meta( 'observatorio_file_tramite_comision'.$i, 'type=file' );
-				/*Archivos ****************************************************************/
+			list( $files_docs_comision, $nombre_grupo_comision, $desc_tramite_comision ) =
+				observatorio_build_tramites_display_arrays( get_the_ID(), 'observatorio_tramites_group_comision' );
 
-				/*Faqs Preguntas ****************************************************************/
-				//$faqs_preguntas[$i] = rwmb_meta( 'pregunta'.$i, 'type=wysiwyg' );
-				$faqs_preguntas_comision[$i] = rwmb_meta( 'pregunta1'.$i, 'type=wysiwyg' );
-				/*Faqs Preguntas ****************************************************************/
+			list( $files_docs_proceso, $nombre_grupo_proceso, $desc_tramite_proceso ) =
+				observatorio_build_tramites_display_arrays( get_the_ID(), 'observatorio_tramites_group_comision2' );
 
-				//$copete = rwmb_meta( 'copete', 'type=wysiwyg' );
+			list( $files_docs_esia, $nombre_grupo_esia, $desc_tramite_esia ) =
+				observatorio_build_tramites_display_arrays( get_the_ID(), 'observatorio_tramites_group_esia' );
 
-				/*Faqs Respuestas****************************************************************/
-				$faqs_respuestas_comision[$i] = rwmb_meta( 'respuesta'.$i, 'type=wysiwyg' );
-				/*Faqs ****************************************************************/								
+			list( $files_docs_comision_aao, $nombre_grupo_comision_aao, $desc_tramite_comision_aao ) =
+				observatorio_build_tramites_display_arrays( get_the_ID(), 'observatorio_tramites_group_comision_aao' );
 
-				/*Grupo *******************************************************************/
-				$obra_grupo_nombre_comision = "observatorio_grupo_tramite_comision".$i;
-				$grupo_id_comision = get_post_meta( get_the_ID(), $obra_grupo_nombre_comision, true );
-				$taxonomies_comision = get_terms( array(
-				    'taxonomy' => 'grupos',
-				    'hide_empty' => false,
-				) );
-				if ( !empty($taxonomies_comision) ) :
-				    foreach( $taxonomies_comision as $category ) {
-				    	if ($grupo_id_comision == $category->term_id) {
-				    		$nombre_grupo_comision[$i] = $grupo_name = $category->name."<br>";
-				    	}   
-				    }
-				endif;
-				/*Grupo *******************************************************************/
-
-				/*Nombre trámite **********************************************************/
-				$obra_tramite_nombre_comision = "observatorio_tramite_comision".$i;
-				$tramite_id_comision = get_post_meta( get_the_ID(), $obra_tramite_nombre_comision, true );
-				$taxonomies_comision2 = get_terms( array(
-				    'taxonomy' => 'tramites',
-				    'hide_empty' => false,
-				) );
-				if ( !empty($taxonomies_comision2) ) :
-				    foreach( $taxonomies_comision2 as $category ) {
-				    	if ($tramite_id_comision == $category->term_id) {
-				    		$nombre_tramite_comision[$i] = $tramite_name_comision = $category->name."<br>";
-				    		$desc_tramite_comision[$i] = $tramite_desc_comision = $category->description."<br>";  		
-				    	}   
-				    }
-				endif;
-				/*Nombre trámite **********************************************************/			
-			}
-			/* COMISION DE SEGUIMIENTO ********************************************************************************/
-
-
-			/* PROCESO DE CONTROL Y SEGUIMIENTO ***********************************************************************/
-			for ($i=1; $i < 11 ; $i++) { //Permite cargar hasta 10 documentos asociados al trámite.
-				
-				/*Archivos ****************************************************************/
-				$files_docs_proceso[$i] = rwmb_meta( 'observatorio_file_tramite_comision2'.$i, 'type=file' );
-				/*Archivos ****************************************************************/
-
-				/*Faqs Preguntas ****************************************************************/
-				//$faqs_preguntas[$i] = rwmb_meta( 'pregunta'.$i, 'type=wysiwyg' );
-				$faqs_preguntas_proceso[$i] = rwmb_meta( 'pregunta1'.$i, 'type=wysiwyg' );
-				/*Faqs Preguntas ****************************************************************/
-
-				//$copete = rwmb_meta( 'copete', 'type=wysiwyg' );
-
-				/*Faqs Respuestas****************************************************************/
-				$faqs_respuestas_proceso[$i] = rwmb_meta( 'respuesta'.$i, 'type=wysiwyg' );
-				/*Faqs ****************************************************************/								
-
-				/*Grupo *******************************************************************/
-				$obra_grupo_nombre_proceso = "observatorio_grupo_tramite_comision2".$i;
-				$grupo_id_proceso = get_post_meta( get_the_ID(), $obra_grupo_nombre_proceso, true );
-				$taxonomies_proceso = get_terms( array(
-				    'taxonomy' => 'grupos',
-				    'hide_empty' => false,
-				) );
-				if ( !empty($taxonomies_proceso) ) :
-				    foreach( $taxonomies_proceso as $category ) {
-				    	if ($grupo_id_proceso == $category->term_id) {
-				    		$nombre_grupo_proceso[$i] = $grupo_name = $category->name."<br>";
-				    	}   
-				    }
-				endif;
-				/*Grupo *******************************************************************/
-
-				/*Nombre trámite **********************************************************/
-				$obra_tramite_nombre_proceso = "observatorio_tramite_comision2".$i;
-				$tramite_id_proceso = get_post_meta( get_the_ID(), $obra_tramite_nombre_proceso, true );
-				$taxonomies_proceso2 = get_terms( array(
-				    'taxonomy' => 'tramites',
-				    'hide_empty' => false,
-				) );
-				if ( !empty($taxonomies_proceso2) ) :
-				    foreach( $taxonomies_proceso2 as $category ) {
-				    	if ($tramite_id_proceso == $category->term_id) {
-				    		$nombre_tramite_proceso[$i] = $tramite_name_proceso = $category->name."<br>";
-				    		$desc_tramite_proceso[$i] = $tramite_desc_proceso = $category->description."<br>";  		
-				    	}   
-				    }
-				endif;
-				/*Nombre trámite **********************************************************/			
-			}
-			/* PROCESO DE CONTROL Y SEGUIMIENTO ***********************************************************************/
-
-
-
-			/* DOCUMENTOS Recepción del EsIA  *************************************************************************/
-			for ($i=1; $i < 11 ; $i++) { //Permite cargar hasta 10 documentos asociados al trámite.
-				
-				/*Archivos ****************************************************************/
-				$files_docs_esia[$i] = rwmb_meta( 'observatorio_file_tramite_esia'.$i, 'type=file' );
-				/*Archivos ****************************************************************/
-
-				/*Faqs Preguntas ****************************************************************/
-				//$faqs_preguntas[$i] = rwmb_meta( 'pregunta'.$i, 'type=wysiwyg' );
-				$faqs_preguntas_esia[$i] = rwmb_meta( 'pregunta1'.$i, 'type=wysiwyg' );
-				/*Faqs Preguntas ****************************************************************/
-
-				//$copete = rwmb_meta( 'copete', 'type=wysiwyg' );
-
-				/*Faqs Respuestas****************************************************************/
-				$faqs_respuestas_esia[$i] = rwmb_meta( 'respuesta'.$i, 'type=wysiwyg' );
-				/*Faqs ****************************************************************/								
-
-				/*Grupo *******************************************************************/
-				$obra_grupo_nombre_esia = "observatorio_grupo_tramite_esia".$i;
-				$grupo_id_esia = get_post_meta( get_the_ID(), $obra_grupo_nombre_esia, true );
-				$taxonomies_esia = get_terms( array(
-				    'taxonomy' => 'grupos',
-				    'hide_empty' => false,
-				) );
-				if ( !empty($taxonomies_esia) ) :
-				    foreach( $taxonomies_esia as $category ) {
-				    	if ($grupo_id_esia == $category->term_id) {
-				    		$nombre_grupo_esia[$i] = $grupo_name = $category->name."<br>";
-				    	}   
-				    }
-				endif;
-				/*Grupo *******************************************************************/
-
-				/*Nombre trámite **********************************************************/
-				$obra_tramite_nombre_esia = "observatorio_tramite_esia".$i;
-				$tramite_id_esia = get_post_meta( get_the_ID(), $obra_tramite_nombre_esia, true );
-				$taxonomies_esia2 = get_terms( array(
-				    'taxonomy' => 'tramites',
-				    'hide_empty' => false,
-				) );
-				if ( !empty($taxonomies_esia2) ) :
-				    foreach( $taxonomies_esia2 as $category ) {
-				    	if ($tramite_id_esia == $category->term_id) {
-				    		$nombre_tramite_esia[$i] = $tramite_name_esia = $category->name."<br>";
-				    		$desc_tramite_esia[$i] = $tramite_desc_esia = $category->description."<br>";  		
-				    	}   
-				    }
-				endif;
-				/*Nombre trámite **********************************************************/			
-			}
-			/* DOCUMENTOS Recepción del EsIA  *************************************************************************/
-
-
-			/* DOCUMENTOS AAO *****************************************************************************************/
-			for ($i=1; $i < 11 ; $i++) { //Permite cargar hasta 10 documentos asociados al trámite.
-				
-				/*Archivos ****************************************************************/
-				$files_docs_comision_aao[$i] = rwmb_meta( 'observatorio_file_tramite_comision_aao'.$i, 'type=file' );
-				/*Archivos ****************************************************************/
-
-				/*Faqs Preguntas ****************************************************************/
-				//$faqs_preguntas[$i] = rwmb_meta( 'pregunta'.$i, 'type=wysiwyg' );
-				$faqs_preguntas_comision_aao[$i] = rwmb_meta( 'pregunta1'.$i, 'type=wysiwyg' );
-				/*Faqs Preguntas ****************************************************************/
-
-				//$copete = rwmb_meta( 'copete', 'type=wysiwyg' );
-
-				/*Faqs Respuestas****************************************************************/
-				$faqs_respuestas_comision_aao[$i] = rwmb_meta( 'respuesta'.$i, 'type=wysiwyg' );
-				/*Faqs ****************************************************************/								
-
-				/*Grupo *******************************************************************/
-				$obra_grupo_nombre_comision_aao = "observatorio_grupo_tramite_comision_aao".$i;
-				$grupo_id_comision_aao = get_post_meta( get_the_ID(), $obra_grupo_nombre_comision_aao, true );
-				$taxonomies_comision_aao = get_terms( array(
-				    'taxonomy' => 'grupos',
-				    'hide_empty' => false,
-				) );
-				if ( !empty($taxonomies_comision_aao) ) :
-				    foreach( $taxonomies_comision_aao as $category ) {
-				    	if ($grupo_id_comision_aao == $category->term_id) {
-				    		$nombre_grupo_comision_aao[$i] = $grupo_name_aao = $category->name."<br>";
-				    	}   
-				    }
-				endif;
-				/*Grupo *******************************************************************/
-
-				/*Nombre trámite **********************************************************/
-				$obra_tramite_nombre_comision_aao = "observatorio_tramite_comision_aao".$i;
-				$tramite_id_comision_aao = get_post_meta( get_the_ID(), $obra_tramite_nombre_comision_aao, true );
-				$taxonomies_comision2_aao = get_terms( array(
-				    'taxonomy' => 'tramites',
-				    'hide_empty' => false,
-				) );
-				if ( !empty($taxonomies_comision2_aao) ) :
-				    foreach( $taxonomies_comision2_aao as $category ) {
-				    	if ($tramite_id_comision_aao == $category->term_id) {
-				    		$nombre_tramite_comision_aao[$i] = $tramite_name_comision_aao = $category->name."<br>";
-				    		$desc_tramite_comision_aao[$i] = $tramite_desc_comision_aao = $category->description."<br>";  		
-				    	}   
-				    }
-				endif;
-				/*Nombre trámite **********************************************************/			
-			}
-			/* DOCUMENTOS AAO *****************************************************************************************/
 
 			?>
 		</div>	

@@ -181,6 +181,7 @@ add_action('login_head', 'custom_login_logo');
 \*------------------------------------*/
 
 include('demo.php');
+include('tramites-group-field.php');
 
 /*
 // Collapse panel admin//
